@@ -2,10 +2,13 @@ import { Injectable } from '@angular/core';
 import { ProductsDetails } from '../Models/ProductsDetails';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpHeaders} from  '@angular/common/http';
-import {getProductsUrl, gettlistofCategoriesUrl,options} 
+import {getProductsUrl, gettlistofCategoriesUrl,options, addItemsCart,
+        productIDString,customerIDString,quantityString,getItemsInCart,
+        deleteItems,productKey} 
         from '../Constants/ServiceUrls'; 
 import { map} from 'rxjs/operators';
 import { CategoryDetails } from '../Models/CategoryDetails';
+
 
 
 @Injectable({
@@ -13,6 +16,7 @@ import { CategoryDetails } from '../Models/CategoryDetails';
 })
 
 export class ProductsService {
+
 
 //Array to store list of products
 productDetails:ProductsDetails[];
@@ -80,5 +84,25 @@ getListOfCategories():Observable<CategoryDetails[]>
 {
     return this.httpClient.get<CategoryDetails[]>
         (gettlistofCategoriesUrl,this.httpHeaderOptions);
+}
+
+addItemsToCart(productID:number,customerID:number,quantity:number)
+{
+ let url=addItemsCart+productIDString+productID+"&"+customerIDString+customerID+"&"+quantityString+quantity
+  return this.httpClient.get
+          (url,this.httpHeaderOptions);
+}
+
+getListOfSelectedItems(customerID:number):Observable<ProductsDetails[]>
+{
+  let url=getItemsInCart+customerID;
+  return this.httpClient.get<ProductsDetails[]>(url,this.httpHeaderOptions);
+}
+
+//method to delete a given product
+deleteProduct(customerID:number,productID:number)
+{
+  let url=deleteItems+customerID+"&"+productKey+productID;
+ return this.httpClient.get(url,this.httpHeaderOptions);
 }
 }

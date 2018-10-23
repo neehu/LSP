@@ -3,6 +3,10 @@ import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {ComponentsModule} from './components/components.module'
 import { AppComponent } from './app.component';
 import {ToastMessageComponent} from './components/toast-message/toast-message.component';
+import { HomePageResolverComponent } from './Resolvers/home-page-resolver/home-page-resolver.component';
+
+
+
 
  
 
@@ -11,7 +15,8 @@ import {ToastMessageComponent} from './components/toast-message/toast-message.co
 @NgModule({
   declarations: [
     AppComponent,
-    ToastMessageComponent
+    ToastMessageComponent,
+    HomePageResolverComponent
   ],
   imports: [
     BrowserModule,

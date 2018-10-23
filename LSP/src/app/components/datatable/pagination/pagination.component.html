@@ -1,0 +1,19 @@
+<div class="pagination">
+    <ul *ngIf="pagerProperties.pages && pagerProperties.pages.length">
+      <li>
+        <a (click)="setPage(1)">First</a>
+      </li>
+      <li>
+        <a (click)="setPage(pagerProperties.currentPage - 1)"><<</a>
+      </li>
+      <li>
+          <span *ngFor="let page of pagerProperties.pages;let i=index" (click)="setPage(page)"><a>{{page}}</a></span>
+        </li>
+      <li>
+        <a (click)="setPage(pagerProperties.currentPage + 1)">>></a>
+      </li>
+      <li>
+        <a (click)="setPage(pagerProperties.totalPages)">Last</a>
+      </li>
+    </ul>
+    </div>

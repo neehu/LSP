@@ -1,10 +1,20 @@
-#Stage 1
-FROM node:8 as builder 
+FROM bitnami/node:9 as builder
+ENV NODE_ENV="production"
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-COPY package.json /usr/src/app
-RUN npm install 
-COPY . /usr/src/app
-Expose 80
-CMD ["npm","start"]
+# Copy app's source code to the /app directory
+COPY . /app
+
+# The application's directory will be the working directory
+WORKDIR /app
+
+# Install Node.js dependencies defined in '/app/packages.json'
+RUN npm install
+
+FROM bitnami/node:9-prod
+ENV NODE_ENV="production"
+COPY --from=builder . /app
+WORKDIR /app
+EXPOSE 3000
+
+# Start the application
+CMD ["npm", "start"]

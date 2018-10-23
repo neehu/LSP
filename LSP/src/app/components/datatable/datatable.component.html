@@ -1,0 +1,24 @@
+<div>
+  <table class="data-table">
+    <tr calss="header">
+      <th>Product Name</th>
+      <th> Product Description</th>
+      <th>Product Price</th>
+      <th>Quantity</th>
+      <th></th>
+      <th></th>
+    </tr>
+  <tr *ngFor="let data of sortedArray">  
+  <td>{{data.ProductName}}</td>
+  <td id="productDescription">{{data.ProductDescription}}</td>
+  <td id="productPrice">{{data.ProductPrice}}</td>
+  <td id="quantity">{{data.Quantity}}</td>
+  <td><button class="remove" (click)="removeProduct(data)" *ngIf="displayRemoveButton">Remove</button></td>
+  <td (click)="navigateToProductDetails(data)" *ngIf="displayViewButton"><button class="view">View</button></td>
+</tr>
+</table>
+</div>
+<app-pagination
+(dataArrayPerPage)="dataArrayPerPage($event)"
+> 
+</app-pagination>

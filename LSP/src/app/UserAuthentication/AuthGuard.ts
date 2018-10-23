@@ -22,7 +22,7 @@ export class AuthGuard implements CanActivate
             return false;
         }
 
-        this.toastService.error('Please Login To view products');
+        this.toastService.error('Please Login To view details');
         this.router.navigate(['Login']);
         return false;
     }

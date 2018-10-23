@@ -1,0 +1,13 @@
+<app-two-input-form
+[firstInputField]="'Email-Address'"
+[secondInputField]="'New Email-Address'"
+[formName]="'Change Email-Address'"
+[buttonName]="'Submit'"
+[checkForInputPattern]="true"
+[inputPattern]="emailPattern"
+(firstInputValue)="setValue($event)"
+(buttonClicked)="updateChanges($event)"
+>
+</app-two-input-form>
+
+<router-outlet></router-outlet>

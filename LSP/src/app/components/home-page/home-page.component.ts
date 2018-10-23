@@ -1,9 +1,7 @@
 import { Component, OnInit}  from '@angular/core';
-import { LetsShopService } from '../../Services/lets-shop.service';
 import { ProductsDetails } from '../../Models/ProductsDetails';
 import {Settings} from '../../Models/Settings';
 import { Router ,ActivatedRoute} from '@angular/router';
-import { DataModel } from '../../Models/Data';
 import {ProductsService} from '../../Services/products.service'
 
 @Component({
@@ -14,7 +12,7 @@ import {ProductsService} from '../../Services/products.service'
 export class HomePageComponent implements OnInit {
 
 //Array to store list of products
-listOfProducts:ProductsDetails[];
+listOfProducts:ProductsDetails[]=[];
 
 //Variable to set settings of ng2-smart table
 settings=Settings;
@@ -22,24 +20,26 @@ settings=Settings;
 //Variable to pass userName
  userName:string;
 
-constructor(private letsShopService:LetsShopService,
-            private router:Router,
-            private activatedRoute:ActivatedRoute,
-            private productsService:ProductsService) { }
+constructor(private router:Router,
+            private productsService:ProductsService,
+            private activatedRoute:ActivatedRoute
+            ) { }
 
 ngOnInit() {
 
 //Service call to get a list of products
-this.productsService.getProducts()
-                    .subscribe((data:ProductsDetails[])=>{
-                    this.listOfProducts=data
-                    });                    
+this.listOfProducts=<ProductsDetails[]>(this.activatedRoute.snapshot.data.data);
 }
 
 //Navigate to product details page on row click
-rowClicked(data:DataModel)
+rowClicked(data)
 {
-  this.router.navigate(['Products',data.data.ProductID]);
+  this.router.navigate(['Products',data]);
+}
+
+deleteProduct()
+{
+
 }
 
 }

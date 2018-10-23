@@ -1,6 +1,6 @@
 export class CustomerDetails
 {
-    public  CustomerId:number;
+    public  CustomerID:number;
     public UserName:string;
     public Password:string;
     public EmailAddress:string;

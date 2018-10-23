@@ -1,32 +1,13 @@
-<div class="loginForm">   
-<p class="formHeader">Login Details</p>
-
-<form  [formGroup]="loginForm">
-<input  type="text" name="UserName" formControlName="userName" placeholder="UserName" 
-              [ngClass]="{'invalidInput': formControls.password.errors?.required && formControls.password.touched,
-                     'validInput':  !formControls.password.errors?.required && !formControls.password.touched
-                   }" required>
-
-<div *ngIf="formControls.userName.errors?.required && formControls.userName.touched" 
-     [ngClass]="{
-             'validationMessage':formControls.userName.errors?.required && 
-                            formControls.userName.touched               
-                        }">
-                            UserName is required</div>
-<input  type="password" name="Password" formControlName="password" 
-        placeholder="Password" 
-        [ngClass]="{'invalidInput': formControls.password.errors?.required && formControls.password.touched,
-                     'validInput':  !formControls.password.errors?.required && !formControls.password.touched
-                   }" required>
-
-<div *ngIf="formControls.password.errors?.required && formControls.password.touched"
-      [ngClass]="{'validationMessage':formControls.password.errors?.required 
-                                 && formControls.password.touched}">
-                                 Password is required</div>
-<input type="button" value="Submit"  
-        formControlName="submit" (click)="onSubmit()">
-</form>
-</div>
+<app-two-input-form
+[firstInputField]="'UserName'"
+[secondInputField]="'Password'"
+[formName]="'LoginDetails'"
+[buttonName]="'Submit'"
+(firstInputValue)="getUserName($event)"
+(secondInputValue)="getPassword($event)"
+(buttonClicked)="onSubmit($event)"
+[secondInputType]="'password'">        
+</app-two-input-form>
  
 
 

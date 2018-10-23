@@ -26,6 +26,10 @@ export class ErrorInterceptor implements HttpInterceptor
             {
                 this.toastService.error(err.error.Message);
             }
+            else
+            {
+                this.toastService.success(err.error.Message);
+            }
             const error=err.error.message  || err.statusText;
             return throwError(error);
         }))

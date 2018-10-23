@@ -16,3 +16,14 @@ export const gettlistofCategoriesUrl="http://localhost:62481/api/Products/postli
 export const options = { headers: new HttpHeaders({ 
     'Access-Control-Allow-Headers': 'Content-Type','Access-Control-Allow-Origin':'*', "Access-Control-Allow-Method":"GET, POST, PUT, DELETE" }) 
     };
+export const addItemsCart="http://localhost:62481/api/CustomerShoppingDetails/GetselectedProducts?"
+export const productIDString:string="productID=";
+export const customerIDString:string="customerID=";
+export const quantityString:string="quantity=";
+export const getItemsInCart="http://localhost:62481/api/CustomerShoppingDetails/postSelectedProductList?customerID="
+export const deleteItems="http://localhost:62481/api/CustomerShoppingDetails/deleteProduct?customerID="
+export const productKey="productID="
+export const customerID:string="customerID="
+export const changeEmailAddress="http://localhost:62481/api/Customer/ChangeEmail?customerID="
+export const newEmailAddress="newEmailAddress="
+export const postCustomerDetails="http://localhost:62481/api/Customer/PostCustomerDetail?customerID="

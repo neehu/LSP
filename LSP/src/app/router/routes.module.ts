@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {routing} from '../Constants/Routes'
 import { RouterModule } from '@angular/router';
@@ -14,6 +14,13 @@ import { HttpClientModule} from  '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { AuthGuard } from '../UserAuthentication/AuthGuard';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { DataResolverComponent } from '../Resolvers/data-resolver/data-resolver.component';
+import {ProductResolver} from '../Resolvers/product-resolver/product-resolver';
+import { TwoInputFormComponent } from '../components/two-input-form/two-input-form.component';
+import { HomePageResolverComponent } from '../Resolvers/home-page-resolver/home-page-resolver.component';
+import { DataTable } from '../components/datatable/datatable.component';
+import { PaginationComponent } from '../components/datatable/pagination/pagination.component';
+import { ChangeEmailAddressComponent } from '../components/change-email-address/change-email-address.component';
 
 @NgModule({
   imports: [
@@ -22,7 +29,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     ReactiveFormsModule,
     Ng2SmartTableModule,
     HttpClientModule,
-  HttpModule,
+    HttpModule,
     routing,
     NgSelectModule
   ],
@@ -31,19 +38,32 @@ import { NgSelectModule } from '@ng-select/ng-select';
   SignUpFormComponent,
   ValidatePasswordMatch,
   HomePageComponent,
-  ProductDetailsComponent 
+  ProductDetailsComponent,
+  DataResolverComponent,
+  ProductResolver,
+  TwoInputFormComponent,
+  DataTable,
+  PaginationComponent,
+  ChangeEmailAddressComponent
 ],
 
   providers:[
     LetsShopService,
-    AuthGuard
+    AuthGuard,
+    DataResolverComponent,
+    ProductResolver,
+    HomePageResolverComponent
 ],
 exports:[
   LoginPageComponent,
   RouterModule,
-  Ng2SmartTableModule,
   SignUpFormComponent,
-HomePageComponent,
-ProductDetailsComponent],
+  HomePageComponent,
+  ProductDetailsComponent,
+  DataTable,
+  PaginationComponent
+],
+
+schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class RoutingModule { }

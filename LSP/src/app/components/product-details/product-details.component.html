@@ -1,7 +1,7 @@
 <p class="header">Product Details</p>
 <div class="container">
   <div class="left-column">
-    <img data-image="black" src="{{imagePath}}" id="image">
+    <img data-image="black" src="{{productDetails.ImagePath}}" id="image">
   </div>
   <div class="right-column">
   <div class="product-description">
@@ -10,8 +10,12 @@
   <p  id="test">{{productDetails.ProductDescription}}</p>
 <div class="product-price">
   <span id="test">{{productDetails.ProductPrice}}</span>
-  <a href="#" class="cart-btn">Add to Cart</a>
-  <a href="#" class="wish-btn">Add To Wish List</a>
+<div class="product-quantity">  
+    <input type="number" value="1" min="1" max="10" [(ngModel)]="quantity" name="quantity"
+     placeholder="Qty">
+</div>
+  <button type="button" class="cart-btn" >Add to Cart</button>
+  <button type="button" class="wish-btn" (click)="addItemsCart()" #wishButton>Add to Wish List</button>
 </div>
 </div>
 </div>

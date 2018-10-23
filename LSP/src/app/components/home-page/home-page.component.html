@@ -1,5 +1,8 @@
-<ng2-smart-table  [settings]="settings" [source]="listOfProducts"
-                 (userRowSelect)="rowClicked($event)"> 
-                </ng2-smart-table>
+<app-data-table 
+(rowSelected)="rowClicked($event)"
+[displayViewButton]="true"
+[displayRemoveButton]="false"
+[dataArray]="listOfProducts">
+</app-data-table>
 
 

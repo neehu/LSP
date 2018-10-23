@@ -6,19 +6,45 @@ margin:0;
 font-family:'Roboto',sans-serif;
 }
 
+@media  only screen and (max-width:817px) and (min-width:721px) and (max-height:465px)
+{
+    body
+    {
+        width:50%;
+        height: 50%;
+    }
+}
+
 .header
 {
     background-color:#4D4D4D;
     text-transform:uppercase;
     font-size:18px;
-    font-weight:100px;
-    padding:20px;
+    padding:1.25rem;
     color:white;
     font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Arial, Helvetica, sans-serif;
-    max-width:1200px;
+    width:90%;
     margin:0 auto;
     position:relative;
-    top:25px;    
+    top:1.5625rem;    
+}
+
+@media  only screen and (max-width:817px) and (min-width:721px) and (max-height:465px)
+{
+    .header
+    {
+        padding:0.625rem;
+        top:0.3125rem;
+    }
+}
+
+@media  only screen and (max-width:720px) and (min-width:603px) and (max-height:465px)
+{
+    .header
+    {
+        padding:0.625rem;
+        top:0.3125rem;
+    }
 }
 .container
 {
@@ -37,13 +63,31 @@ font-family:'Roboto',sans-serif;
 
 .left-column img
 {
-    width:50%;
+    width:80%;
     position: absolute;
     left:0;
     top:0;
     transition: all 0.3s ease;
 }
 
+@media  only screen and (max-width:817px) and (min-width:721px) and (max-height:465px)
+{
+    .left-column img
+    {
+        width:70%;
+        position: relative;
+        left:20px;
+    }       
+}
+@media  only screen and (max-width:720px) and (min-width:603px) and (max-height:465px)
+{
+    .left-column img
+    {
+        width:60%;
+        position: relative;
+        left:20px;
+    }       
+}
 .right-column
 {
     width:90%;
@@ -55,7 +99,7 @@ font-family:'Roboto',sans-serif;
 {
     border-bottom: 1px solid #E1E8EE;
     margin-bottom:10px;
-    height: 60%;
+    height: 70%;
 }
 
 .product-description span
@@ -75,6 +119,23 @@ font-family:'Roboto',sans-serif;
     letter-spacing:-2px;
 }
 
+@media  only screen and (max-width:817px) and (min-width:721px) and (max-height:465px)
+{
+    .product-description h1
+    {
+        font-size:4.375rem;
+    }
+}
+
+@media  only screen and (max-width:720px) and (min-width:620px) and (max-height:465px)
+{
+    .product-description h1
+    {
+        font-size:3.125rem;
+    }
+}
+
+
 .product-description p
 {
     font-size:30px;
@@ -84,7 +145,7 @@ font-family:'Roboto',sans-serif;
 }
 
  /* Product Price */
- .product-price
+ .product-price,.product-quantity label,.product-quantity input[type="number"]
  {
      display: flex;
      align-items: center;
@@ -100,7 +161,9 @@ font-family:'Roboto',sans-serif;
 
  .cart-btn,.wish-btn
  {
-     display:inline-block;
+     position: relative;
+     top:80px;
+     left:-140px;     
      background-color: #7DC855;
      border-radius: 6px;
      font-size:16px;
@@ -110,11 +173,17 @@ font-family:'Roboto',sans-serif;
      transition: all .5s;
  }
 
+ @media  only screen and (max-width:720px) and (min-width:620px) and (max-height:465px)
+ {
+    .cart-btn,.wish-btn
+    {
+        padding:10px 10px;
+    }
+ }
  .wish-btn
  {
      position: relative;
-     right:-20px;
-     background-color:orange;
+    background-color:orange;
  }
 
  .cart-btn:hover,.wish-btn:hover

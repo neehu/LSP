@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule ,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import {RoutingModule} from '../router/routes.module';
@@ -11,6 +11,11 @@ import { DropDownComponent } from './header/drop-down/drop-down.component';
 import {ErrorInterceptor} from '../UserAuthentication/ErrorInterceptor';
 import {ProductsService} from '../Services/products.service';
 import {JWTInterceptor} from '../UserAuthentication/JWTInterceptor';
+import { WishListDisplayComponent } from './wish-list-display/wish-list-display.component';
+import { CustomerDetailsComponent } from './customer-details/customer-details.component';
+
+
+
 
 
 
@@ -24,14 +29,15 @@ import {JWTInterceptor} from '../UserAuthentication/JWTInterceptor';
   declarations: [
       HeaderComponent,
       ReversePipe,
-      DropDownComponent
+      DropDownComponent,
+      WishListDisplayComponent,
+      CustomerDetailsComponent
     ],
   exports:[
     HeaderComponent,
     RoutingModule,
     ReactiveFormsModule,
-    FormsModule,
-    RoutingModule
+    FormsModule
   ],
   providers:[
     LetsShopService,
@@ -39,7 +45,8 @@ import {JWTInterceptor} from '../UserAuthentication/JWTInterceptor';
     ProductsService,
     {provide:HTTP_INTERCEPTORS,useClass:JWTInterceptor,multi:true},
     {provide:HTTP_INTERCEPTORS,useClass:ErrorInterceptor,multi:true}
-  ]
+  ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
   
 })
 export class ComponentsModule { }

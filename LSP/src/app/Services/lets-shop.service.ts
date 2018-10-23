@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse, HttpErrorResponse} from  '@angular/common/http';
+import { HttpClient} from  '@angular/common/http';
 import {checkLoginUrl,userName,password,submitFormUrl,emailAddress,
-        phoneNumber, city,country,address,options, gettlistofCategoriesUrl} 
+        phoneNumber, city,address,options,changeEmailAddress,newEmailAddress,postCustomerDetails} 
         from '../Constants/ServiceUrls';
 import { map } from 'rxjs/operators';
 import { CustomerDetails } from '../Models/CustomerDetails';
-import { Observable, BehaviorSubject, EMPTY } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { FormGroup } from '@angular/forms';
 import { ToastServiceService } from './toast-service.service';
 import { Router } from '@angular/router';
-import { States } from '../Models/States';
+
 
 
 @Injectable({
@@ -33,9 +33,8 @@ constructor(private httpClient:HttpClient,
 //Method to check login data
   checkLoginData(username:string,enteredPassword:string):Observable<CustomerDetails>
   {
-    
-      this.url=checkLoginUrl+userName+username+"&"+password+enteredPassword;
-      return this.httpClient.get<CustomerDetails>(this.url,this.httpHeaderOptions)
+    this.url=checkLoginUrl+userName+username+"&"+password+enteredPassword;
+    return this.httpClient.get<CustomerDetails>(this.url,this.httpHeaderOptions)
                             .pipe(map(response=>{
                             this.customerDetails=response;
                             if(response && response.AccessToken)
@@ -52,8 +51,15 @@ constructor(private httpClient:HttpClient,
   getUserName() {
     let result=sessionStorage.getItem('currentUser');
     this.messageSource.next(JSON.parse(result));
-    return JSON.parse(result)
-     //console.log(result);
+    return JSON.parse(result);
+  }
+
+  //Method to get customerdetails
+
+  getCustomerDetails(customerID:number)
+  {
+    let url=postCustomerDetails+customerID;
+    return this.httpClient.get<CustomerDetails>(url,this.httpHeaderOptions);
     
   }
 
@@ -99,4 +105,11 @@ constructor(private httpClient:HttpClient,
   {
     return this.httpClient.get<string[]>("./assets/States.json");
   }
+
+  //change Email Address
+  changeEmailAddress(value:string,customerID:number)
+  {
+    let url=changeEmailAddress+customerID+"&"+newEmailAddress+value;
+    return this.httpClient.get(url,this.httpHeaderOptions);
+}
 }

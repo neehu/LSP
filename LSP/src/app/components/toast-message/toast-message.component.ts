@@ -22,11 +22,11 @@ constructor(private toastService:ToastServiceService) {
 this.toastService.getMessage().subscribe((response)=> 
  {
    this.toastMessages=response;
-  console.log(this.toastMessages);
+   interval(5000).subscribe(()=> {
+    this.toastService.dismissMessage();
+  });
  });
 
- interval(5000).subscribe(()=> {
-   this.toastService.dismissMessage();
- })
+ 
 }
 }

@@ -1,20 +1,19 @@
-import {  FormGroup } from '@angular/forms';
-import { SERVER_TRANSITION_PROVIDERS } from '@angular/platform-browser/src/browser/server-transition';
+import {  FormGroup, FormControl } from '@angular/forms';
+import {FormData} from '../Models/FormData'
 
 
 export class PasswordValidator
 {
-  
-static validate(signUpFormGroup: FormGroup)
+static validate(userForm:FormGroup)
 {
-    let password = signUpFormGroup.controls.password.value;
-    let confirmPassword=signUpFormGroup.controls.confirmPassword.value;
-     // value not equal in verify control
-     if (password!==confirmPassword) {
+ 
+  let controlsValue=<FormData>(userForm.value);
+ let firstValue=  controlsValue.firstUserInput;
+ let secondValue=controlsValue.secondUserInput;
+  // value not equal in verify control
+     if (firstValue!==secondValue) {
         return {doesMatchPassword: true};
       }
       return null;
     }
-  }
-  
-   
+}

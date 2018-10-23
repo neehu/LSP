@@ -1,0 +1,46 @@
+<div class="userInputForm">   
+  <p class="formHeader">{{formName}}</p>
+  
+  <form  [formGroup]="userInputForm">
+  <input  type="text" formControlName="firstUserInput" placeholder='{{firstInputField}}' 
+                [ngClass]="{'invalidInput': formControls.firstUserInput.errors?.required && formControls.firstUserInput.touched,
+                       'validInput':  !formControls.firstUserInput.errors?.required && !formControls.firstUserInput.touched
+                     }" required>
+  <div *ngIf="formControls.firstUserInput.errors?.required && formControls.firstUserInput.touched" 
+       [ngClass]="{
+               'validationMessage':formControls.firstUserInput.errors?.required && 
+                              formControls.firstUserInput.touched               
+                          }">
+                              {{firstInputField}} is required</div>
+
+  <div *ngIf="formControls.firstUserInput.errors?.pattern && formControls.firstUserInput.touched"
+        [ngClass]="{'validationMessage':formControls.firstUserInput.errors?.pattern 
+        && formControls.firstUserInput.touched}"> Enter Valid {{firstInputField}} </div>
+
+  <input  type='{{secondInputType}}' name="Password" formControlName="secondUserInput" 
+          placeholder='{{secondInputField}}' 
+          [ngClass]="{'invalidInput': formControls.secondUserInput.errors?.required && formControls.secondUserInput.touched,
+                       'validInput':  !formControls.secondUserInput.errors?.required && !formControls.secondUserInput.touched
+                     }" required #secondUserInput>
+  
+  <div *ngIf="formControls.secondUserInput.errors?.required && formControls.secondUserInput.touched"
+        [ngClass]="{'validationMessage':formControls.secondUserInput.errors?.required 
+                                   && formControls.secondUserInput.touched}">
+                                   {{secondInputField}} is required</div>
+
+  <div *ngIf="formControls.secondUserInput.errors?.pattern && formControls.secondUserInput.touched"
+      [ngClass]="{'validationMessage':formControls.secondUserInput.errors?.pattern 
+      && formControls.secondUserInput.touched}"> Enter Valid {{secondInputField}} </div>
+
+  <div *ngIf="userInputForm.errors?.doesMatchPassword && formControls.secondUserInput.touched"
+      [ngClass]="{'validationMessage':userInputForm.errors?.doesMatchPassword 
+                                 && formControls.secondUserInput.touched}">
+                                 {{secondInputField}} does not match</div>
+
+  <input type="button"  value="{{buttonName}}"
+          formControlName="buttonControl" (click)="emitClickEvent($event)">
+          <div *ngIf="formControls.secondUserInput.errors?.required && formControls.firstUserInput.errors?.required && formControls.buttonControl.touched"
+          [ngClass]="{'validationMessage':formControls.secondUserInput.errors?.required}">
+                                 {{firstInputField}} and {{secondInputField}} are required</div>
+  </form>
+  </div>

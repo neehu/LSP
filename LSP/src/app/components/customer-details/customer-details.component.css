@@ -1,0 +1,61 @@
+.customerDetailsView
+{
+    position: relative;
+    top:50%;
+    left:35%;
+    background-color: rgb(238,238,238);
+    width:30%;
+    padding:30px 50px 30px 20px;
+    font-size: 20px;
+    font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Arial, Helvetica, sans-serif;
+    height: 50%;
+    top:20px;
+}
+@media  only screen and (max-width:817px) and (min-width:447px) and (max-height:720px)
+{
+    .customerDetailsView
+    {
+        width:70%;
+        left:15%;
+    }
+}
+
+@media  only screen and (max-width:720px) and (min-width:447px) and (max-height:465px)
+{
+    .customerDetailsView
+    {
+        width: 90%;
+        left:5%;
+    }
+
+}
+
+#customerdetails
+{
+    float: right;
+    position: relative;
+    bottom: 40px;
+}
+
+#labels
+{
+    position: relative;
+}
+
+a
+{
+    visibility: hidden;
+}
+
+div  p:hover 
+{
+    visibility: visible;
+    cursor: pointer;
+}
+
+div  p:hover > a
+{
+    visibility: visible;
+    cursor: pointer;
+}
+

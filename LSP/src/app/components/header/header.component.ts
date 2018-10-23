@@ -19,6 +19,8 @@ customerDetails=new CustomerDetails();
 //Subscription to get loged in username
 subscription:Subscription;
 
+//variable to check menu button click
+buttonClicked:boolean=false;
 constructor(private router:Router,
             private letsShopService:LetsShopService,
             private toastService:ToastServiceService)
@@ -62,6 +64,16 @@ logout()
   //Show a log out sucess message
   this.toastService.success('Logged out Sucessfully');
   
+}
+
+openNav()
+{
+  this.buttonClicked=true;
+}
+
+closeNav()
+{
+  this.buttonClicked=false;
 }
 }
 
