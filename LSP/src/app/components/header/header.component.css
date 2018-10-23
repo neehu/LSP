@@ -1,0 +1,189 @@
+body 
+{
+    background-color: #4CAF50;
+    color: #222;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+}
+   
+.NavigationMenu 
+{
+    background-color: #333;
+    border: 1px solid #dedede;
+    border-radius: 4px;
+    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
+    color: #fff;
+    display: block;
+    margin: 8px 22px 8px 22px;
+    overflow: hidden;
+    width: 90%;
+}
+   
+/* Styling for first menu */
+
+.NavigationMenu ul
+{
+    margin: 0;
+    padding: 0;
+}
+   
+.NavigationMenu ul li 
+{
+    display: inline-block;
+    list-style-type: none;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}
+   
+.NavigationMenu > ul > li > a > .caret,
+.NavigationMenu > ul > li /deep/ div ul > li > a > .caret 
+{
+    border-top: 4px solid #aaa;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    content: "";
+    display: inline-block;
+    height: 0;
+    width: 0;
+    vertical-align: middle;
+   
+    -webkit-transition: color 0.1s linear;
+    -moz-transition: color 0.1s linear;
+    -o-transition: color 0.1s linear;
+    transition: color 0.1s linear;
+}
+   
+.NavigationMenu > ul > li /deep/ div ul > option > a > .caret 
+{
+    border-bottom: 4px solid transparent;
+    border-top: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-left: 4px solid #f2f2f2;
+    margin: 0 0 0 8px;
+          
+}
+
+
+.NavigationMenu > ul > li > a 
+{
+    color: #fff;
+    display: block;
+    line-height: 56px;
+    padding: 0 24px;
+    text-decoration: none;
+}
+   
+.NavigationMenu > ul > li:hover 
+{
+    border:1px solid grey;
+    background-color:#4CAF50;
+}
+   
+.NavigationMenu > ul > li:hover > a 
+{
+    border:1px solid grey;
+    background-color:#4CAF50;
+}
+   
+.NavigationMenu > ul > li:hover > a > .caret 
+{
+    border-top-color: rgb( 255, 255, 255 );
+}
+   
+.NavigationMenu > ul > li /deep/ div ul > li:hover > a > .caret 
+{
+    border-left-color: rgb(255,255,255);
+}
+
+/* Styling for second menu */
+.NavigationMenu > ul > li /deep/ div,
+.NavigationMenu > ul > li /deep/ div ul > li > div 
+{
+    background-color: rgb( 40, 44, 47 );
+    border-top: 0;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
+    display: none;
+    margin: 0;
+    opacity: 0;
+    position: absolute;
+    width: 180px;
+    visibility: hidden;
+    z-index: 100;
+   
+    -webkit-transiton: opacity 0.2s;
+    -moz-transition: opacity 0.2s;
+    -ms-transition: opacity 0.2s;
+    -o-transition: opacity 0.2s;
+    transition: opacity 0.2s;
+}
+   
+.NavigationMenu > ul > li /deep/ div ul > li >  div 
+{
+    background-color: rgb( 40, 44, 47 );
+    border-radius: 0 4px 4px 4px;
+    box-shadow: inset 2px 0 5px rgba(0,0,0,.15);
+    margin-top: 0px;
+    left: 155px;
+    top:-10px;
+    height: auto;
+     width:auto;
+     padding:20px;
+}
+   
+/* Styling for third level menu */
+.NavigationMenu > ul > li:hover /deep/ div,
+.NavigationMenu > ul > li /deep/ div ul > li:hover > div 
+{
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+   
+.NavigationMenu > ul > li /deep/ div ul > li,
+.NavigationMenu > ul > li /deep/ div ul > li  div ul > li 
+{
+    display: block;
+    position: relative;
+    margin-left: -20px;
+    border-left:50px;
+}
+   
+.NavigationMenu > ul > li /deep/ div ul > li > a,
+.NavigationMenu > ul > li /deep/ div ul > li > div ul > li > a 
+{
+    color: #fff;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    width: 100%;
+    border-left:0px;
+}
+
+.NavigationMenu > ul > li /deep/ div ul > li:hover > a:hover
+{
+    
+    border:1px solid grey;
+    background-color:#4CAF50;
+}
+
+
+
+
+
+/* Position login Sign up buttons right */
+#btn1,#btn2,#btn3,#userName
+{
+    float:right;
+}
+
+.NavigationMenu > ul > li /deep/ div ul
+{
+    position: relative;
+}
+

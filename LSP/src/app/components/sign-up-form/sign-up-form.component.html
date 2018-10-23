@@ -1,0 +1,83 @@
+<div class="signUpForm">
+  <p class="formHeader">Enter Your Details</p>
+
+<form class="container"  [formGroup]="signUpForm">
+      <input type="text" name="userName" formControlName="userName" 
+      placeholder="UserName" ng-minlength="3" ng-maxlength="5" required>
+
+      <div *ngIf="formControls.userName.errors?.required && formControls.userName.touched" 
+      class="alert alert-warning">UserName is required</div>
+
+      <div *ngIf="formControls.userName.errors?.minlength && formControls.userName.touched" 
+      class="alert alert-warning">UserName must be greater than 3 characters</div>
+
+      <div *ngIf="formControls.userName.errors?.maxlength && formControls.userName.touched" 
+      class="alert alert-warning">UserName must be less than 12 characters</div>
+        
+      <input type="password" name="password" formControlName="password" 
+      placeholder="Password" passwordValidator="verify" parent="true" required>
+
+      <div *ngIf="formControls.password.errors?.required && formControls.password.touched" 
+      class="alert alert-warning">Password is required</div>
+
+      <div *ngIf="formControls.password.errors?.minlength && formControls.password.touched" 
+      class="alert alert-warning">Password must be greater than 3 characters</div>
+
+      <div *ngIf="formControls.password.errors?.pattern && formControls.password.touched" 
+      class="alert alert-warning">Check Password Pattern</div>
+
+    <input type="password" name="confirmPassword" formControlName="confirmPassword"
+    placeholder="Confirm Password" required>
+
+    <div *ngIf="formControls.confirmPassword.errors?.required && formControls.confirmPassword.touched" 
+    class="alert alert-warning">Password is required</div>
+
+    <div *ngIf="signUpForm.errors?.doesMatchPassword && formControls.confirmPassword.touched" 
+    class="alert alert-warning">Passwords do not match</div>
+
+    <input type="text" name="emailAddress" formControlName="emailAddress" 
+    placeholder="EmailAddress" required>
+
+    <div *ngIf="formControls.emailAddress.errors?.required && formControls.emailAddress.touched" 
+    class="alert alert-warning">Email is required</div>
+    
+    <div *ngIf="formControls.emailAddress.errors?.pattern && formControls.emailAddress.touched && formControls.emailAddress.invalid" 
+    class="alert alert-warning">Please Enter Valid EmailAddress</div>
+
+    <input type="tel" name="phoneNumber" formControlName="phoneNumber" 
+    placeholder="PhoneNumber" required>
+
+    <div *ngIf="formControls.phoneNumber.errors?.required && formControls.phoneNumber.touched" 
+    class="alert alert-warning">PhoneNumber is required</div>
+    <div *ngIf="formControls.phoneNumber.errors?.pattern && formControls.phoneNumber.touched && formControls.phoneNumber.invalid" 
+    class="alert alert-warning">PhoneNumber must be 10 characters</div>
+      
+    
+    <input type="text" name="address" formControlName="address" 
+    placeholder="Enter the Address" required>
+
+    <div *ngIf="formControls.address.errors?.required && formControls.address.touched" 
+    class="alert alert-warning">Address is required</div>
+
+
+    <ng-select [items]="states"
+              bindLabel="state"
+              formControlName="state"
+              placeholder="Select state">
+    </ng-select>
+
+    <div *ngIf="formControls.state.errors?.required && formControls.state.touched" 
+    class="alert alert-warning">State is required</div>
+
+    
+    <ng-select [items]="cities"
+              bindLabel="cities"
+              formControlName="city"
+              placeholder="Select city">
+    </ng-select>
+
+    <div *ngIf="formControls.city.errors?.required && formControls.city.touched" 
+    class="alert alert-warning">City is required</div>
+    <input type="button" (click)="SubmitDetails()" value="Submit" formControlName="submitButton">
+ </form>
+</div>

@@ -1,0 +1,16 @@
+<div>
+  <ul class="subMenu" >
+    <li>
+    <a *ngFor="let category of listofCategories;let i=index" 
+    (mouseenter)="getProductNames(category.CategoryID,$event)">{{category.CategoryName}}
+    <span class="glyphicon arrow">
+    </span></a>
+<div>
+    <ul class="subMenu2" >
+    <li><a href="test.html" *ngFor="let product of listofproductNames" 
+        [routerLink]="['Products',product.ProductID]">{{product.ProductName}}</a></li>
+    </ul>
+  </div>
+ </li>
+</ul>
+</div>

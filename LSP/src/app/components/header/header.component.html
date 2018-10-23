@@ -1,0 +1,24 @@
+<nav class="NavigationMenu">
+      <ul>
+        <li ><a  class="Header" href="Logo.html">LetsShop</a></li>
+        <li><a routerLink="Home">Home</a></li>
+        <li><a href="products.html">Categories<span class="caret"></span></a>
+    <app-drop-down></app-drop-down>
+    </li>
+    <li><a href="About.html">About</a></li>
+    <li><a href="Help.html" *ngIf="customerDetails?.UserName">My Wish List</a></li>  
+    <li  id="btn1"  href="#home" routerLink="Login" *ngIf="customerDetails?.UserName==null">
+      <a href="Login">Login</a>
+    </li>
+    <li  id="btn2"  routerLink="SignUp" *ngIf="customerDetails?.UserName==null">
+      <a href="SignUp">SignUp</a>
+    </li>
+    <li *ngIf="customerDetails?.UserName" id="btn3" (click)="logout()">
+      <a>LogOut</a>
+    </li>
+    <li *ngIf="customerDetails?.UserName"  id="userName">
+      <a>Welcome {{customerDetails?.UserName}}</a>
+    </li>      
+  </ul>    
+</nav>
+<router-outlet></router-outlet>

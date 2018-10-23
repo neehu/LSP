@@ -1,0 +1,12 @@
+<div>
+    <div class="notification"
+          *ngIf="toastMessages!=null"
+          [ngClass]="{
+                    'info': toastMessages.Style=='info',
+                    'danger': toastMessages.Style=='Danger',
+                    'success':toastMessages.Style=='Success'
+                    }">
+    {{toastMessages.Content}}        
+                  </div> 
+</div>
+
